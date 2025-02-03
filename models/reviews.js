@@ -11,5 +11,5 @@ const reviewSchema = new mongoose.Schema({
 reviewSchema.index({ mediaID: 1});
 reviewSchema.index({ rating: 1 });
 
-const Review = mongoose.model("Podcast", reviewSchema)
+const Review = mongoose.model("Review", reviewSchema)
 module.exports = Review;

@@ -47,11 +47,13 @@ app.delete("/reviews/:reviewId", async (req, res) => {
     res.redirect("/reviews");
 })
 
+//UPDATE - Update a review in the DB
 app.put("/reviews/:reviewId", async (req,res) => {
     await Reviews.findByIdAndUpdate(req.params.reviewId, req.body);
     res.send("Review updated successfully")
 })
 
+//CREATE - Create a review and insert in the DB
 app.post("/reviews", async (req, res) => {
     try {
         const newReview = new Reviews(req.body);
@@ -61,9 +63,6 @@ app.post("/reviews", async (req, res) => {
         res.status(400);
     }
 });
-
-
-
 
 
 

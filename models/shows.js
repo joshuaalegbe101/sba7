@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
 
 const showSchema = new mongoose.Schema({
-    title: String,
+    title: { type: String, required: true },
     episodes: {
-        runtime: Number
+        runtime: { type: Number, required: true }
     },
-    seasons: Number,
+    seasons: { type: Number, required: true }
 
 });
 
-const Show = mongoose.model("Show, showSchema")
+const Show = mongoose.model("Show", showSchema)
 module.exports = Show;
