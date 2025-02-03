@@ -1,0 +1,11 @@
+What could you have done differently during the planning stages of your project to make the execution easier?
+
+-Listing the requirements.
+
+Were there any requirements that were difficult to implement? What do you think would make them easier to implement in future projects?
+
+-Indexing maybe. Understanding them more would help in the future.
+
+What would you add to or change about your application if given more time?
+
+-Added a front-end
