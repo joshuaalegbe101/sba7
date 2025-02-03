@@ -19,8 +19,8 @@ app.use(morgan("dev"));
 //ROUTES
 
 //Homepage
-app.get("/", aysnc(req, res) => {
-    res.
+app.get("/", async (req, res) => {
+    console.log("Home");
 });
 
 //Index Movies Route
@@ -41,11 +41,26 @@ app.get("/reviews", async (req, res) => {
     console.log(allReviews);
 })
 
-
+//DELETE - Remove a review from the DB
 app.delete("/reviews/:reviewId", async (req, res) => {
-    await Review.findByIdAndDelete(req.params.bookId)
+    await Reviews.findByIdAndDelete(req.params.reviewId)
     res.redirect("/reviews");
 })
+
+app.put("/reviews/:reviewId", async (req,res) => {
+    await Reviews.findByIdAndUpdate(req.params.reviewId, req.body);
+    res.send("Review updated successfully")
+})
+
+app.post("/reviews", async (req, res) => {
+    try {
+        const newReview = new Reviews(req.body);
+        await newReview.save();
+        res.status(201).json(newReview);
+    } catch (error) {
+        res.status(400);
+    }
+});
 
 
 
