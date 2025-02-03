@@ -35,12 +35,17 @@ app.get("/shows", async (req, res) => {
     console.log(allShows);
 });
 
+//Index Reviews Route
 app.get("/reviews", async (req, res) => {
     const allReviews = await Reviews.find();
     console.log(allReviews);
 })
 
 
+app.delete("/reviews/:reviewId", async (req, res) => {
+    await Review.findByIdAndDelete(req.params.bookId)
+    res.redirect("/reviews");
+})
 
 
 
